@@ -78,9 +78,11 @@ body {
   margin: 0;
   color: #0e0000;
   font-weight: 400;
+  background: #FFFFFF;
 
   .container {
-      width: 96%;
+      width: 100%;
+      max-width: $widthContent;
       margin: 0 auto;
   }
 }

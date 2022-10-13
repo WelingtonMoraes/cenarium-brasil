@@ -71,6 +71,7 @@ nav{
 
   &__content{
     width: 90%;
+    max-width: 1000px;
 
     h1{
       color: #EAEAEA;
@@ -99,6 +100,49 @@ nav{
       &:hover{
         color: #DC9713;
         background-color: #fff;
+      }
+    }
+  }
+}
+
+.about{
+  &__left{
+    width: 49%;
+    height: 450px;
+    background: #000000;
+
+    img{
+      width: 85%;
+      max-width: 516px;
+      margin-right: 13%;
+    }
+  }
+
+  &__right{
+    width: 51%;
+    height: 450px;
+    background: linear-gradient(10.22deg, #DC9713 19.68%, #DB9214 44.96%, #D68518 73.15%, #CF6E1F 103.29%, #CB6223 116.9%);
+    color: #fff;
+
+    &--text{
+      width: 90%;
+      max-width: 590px;
+
+      h3{
+        font-style: normal;
+        font-weight: 600;
+        font-size: 48px;
+        line-height: 59px;
+        margin: 0px;
+        margin-bottom: 40px;
+      }
+
+      p{
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 29px;
+        letter-spacing: 0.15em;
       }
     }
   }
