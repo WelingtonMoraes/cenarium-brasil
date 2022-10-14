@@ -27,7 +27,7 @@
   </div>
 </div>
 
-<div class="about container alinItem">
+<div class="about alinItem">
   <div class="about__left alignVerticalEnd">
     <img src="../assets/images/Logo-about.png" alt="" />
   </div>
@@ -42,4 +42,81 @@
       </p>
     </div>
   </div>
+  <img class="about__bottom" src="../assets/images/bottom-about.png" alt="" />
 </div>
+
+<div class="specialties container alignVertical">
+  <h2>nossas especialidades</h2>
+
+  <div class="specialties__tabs col-12">
+    <div class="specialties__tabs--header alignVertical">
+      <div class="col-4 alignVerticalStart">
+        <a class="active" (click)="openTab('tab1')">Atrações Culturais</a>
+      </div>
+      <div class="col-4 alignVertical">
+        <a (click)="openTab('tab2')">esculturas</a>
+      </div>
+      <div class="col-4 alignVerticalEnd">
+        <a (click)="openTab('tab3')">iluminação cênica</a>
+      </div>
+    </div>
+    <div *ngIf="true" class="specialties__tabs--body alignVerticalStart">
+      <div class="item col-3 alignVertical">
+        <img src="http://via.placeholder.com/300" alt="" />
+      </div>
+      <div class="item col-3 alignVertical">
+        <img src="http://via.placeholder.com/300" alt="" />
+      </div>
+      <div class="item col-3 alignVertical">
+        <img src="http://via.placeholder.com/300" alt="" />
+      </div>
+      <div class="item col-3 alignVertical">
+        <img src="http://via.placeholder.com/300" alt="" />
+      </div>
+      <div class="item col-3 alignVertical">
+        <img src="http://via.placeholder.com/300" alt="" />
+      </div>
+      <div class="item col-3 alignVertical">
+        <img src="http://via.placeholder.com/300" alt="" />
+      </div>
+      <div class="item col-3 alignVertical">
+        <img src="http://via.placeholder.com/300" alt="" />
+      </div>
+      <div class="item col-3 alignVertical">
+        <img src="http://via.placeholder.com/300" alt="" />
+      </div>
+      <div class="item col-3 alignVertical">
+        <img src="http://via.placeholder.com/300" alt="" />
+      </div>
+      <div class="item col-3 alignVertical">
+        <img src="http://via.placeholder.com/300" alt="" />
+      </div>
+      <div class="item col-3 alignVertical">
+        <img src="http://via.placeholder.com/300" alt="" />
+      </div>
+      <div class="item col-3 alignVertical">
+        <img src="http://via.placeholder.com/300" alt="" />
+      </div>
+    </div>
+
+    <div *ngIf="false" class="specialties__tabs--body alignVerticalStart">
+      <div class="item col-3 alignVertical">
+        <img src="http://via.placeholder.com/300" alt="" />
+      </div>
+    </div>
+
+    <div *ngIf="false" class="specialties__tabs--body alignVerticalStart">
+      <div class="item col-3 alignVertical">
+        <img src="http://via.placeholder.com/300" alt="" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="alinItem">
+  <img class="" src="../assets/images/fake1.png" alt="" />
+</div> -->
+
+<!-- <div class="alinItem">
+  <img class="" src="../assets/images/fake2.png" alt="" />
+</div> -->

@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cenarium';
+
+  public openTab(_tab: string){
+    console.log(_tab)
+  }
 }
