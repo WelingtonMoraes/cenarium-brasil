@@ -206,6 +206,7 @@ nav{
 
         img{
           width: 100%;
+          height: 100%;
           max-width: 317px;
           min-height: 337px;
           object-fit: cover;
@@ -258,7 +259,58 @@ nav{
   }
 }
 
-
 .whatDo{
+  padding: 50px 0px;
 
+  &__body{
+    width: 90%;
+    max-width: 1380px;
+
+    &--card{
+      width: 100%;
+      max-width: 443px;
+      padding: 30px 15px;
+      margin: 15px;
+      box-sizing: border-box;
+
+      background: #FDF5F5;
+      box-shadow: -3px 6px 14px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(9px);
+      border-radius: 13px;
+
+      img{
+        width: 90%;
+        height: 100%;
+        max-width: 379px;
+        max-height: 256px;
+        border-radius: 16px;
+        object-fit: cover;
+      }
+
+      h3{
+        font-weight: 600;
+        font-size: 24px;
+        padding: 0px 5%;
+      }
+
+      p{
+        margin: 0px;
+        width: 90%;
+        max-width: 379px;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 24px;
+        padding: 0px 5%;
+      }
+    }
+  }
+}
+
+.structure{
+  background-image: url("../assets/images/Background2.svg");
+  width: 100%;
+  height: 1300px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
