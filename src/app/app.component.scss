@@ -309,8 +309,57 @@ nav{
 .structure{
   background-image: url("../assets/images/Background2.svg");
   width: 100%;
-  height: 1300px;
+  height: 1220px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  &__body{
+    width: 90%;
+    max-width: 1400px;
+
+    h2{
+      font-style: normal;
+      font-weight: 600;
+      font-size: 64px;
+      line-height: 78px;
+      letter-spacing: 0.15em;
+      margin: 0px;
+
+      b{
+        font-weight: 800;
+      }
+    }
+
+    p{
+      font-style: normal;
+      font-weight: 500;
+      font-size: 48px;
+      line-height: 59px;
+      letter-spacing: 0.15em;
+      margin-bottom: 0px;
+
+      span{
+        font-weight: 700;
+        color: #fff;
+      }
+    }
+
+    .marginTop{
+      margin-top: 30px;
+    }
+
+    img{
+      width: 95%;
+      height: 450px;
+
+      object-fit: cover;
+      border: 8px solid #fff;
+      border-radius: 16px;
+    }
+  }
+}
+
+.employees{
+
 }

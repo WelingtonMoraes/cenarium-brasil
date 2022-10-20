@@ -157,14 +157,34 @@
 </div>
 
 <div class="structure container alignVertical">
-  <div class="structure__body">
-    <div class="col-6">
+  <div class="structure__body alignVertical">
+    <div class="col-5 alignVertical">
       <h2>NOSSAS <b>ESTRUTURAS</b></h2>
       <p>
-        Estamos localizados em <span>Curitiba</span> e
+        Estamos localizados <br />em <span>Curitiba</span> e
         <span>Santa Catarina</span>
       </p>
     </div>
-    <div class="col-6"></div>
+    <div class="col-7 alignVerticalEnd">
+      <img src="https://via.placeholder.com/738x456" alt="" />
+    </div>
+    <div class="marginTop col-7 alignVerticalStart">
+      <img src="https://via.placeholder.com/738x456" alt="" />
+    </div>
+    <div class="marginTop col-5 alignVerticalEnd">
+      <img src="https://via.placeholder.com/738x456" alt="" />
+    </div>
   </div>
+</div>
+
+<div class="employees container alignVertical">
+  <swiper>
+    <ng-template swiperSlide>
+      <div>Slide</div>
+    </ng-template>
+
+    <ng-template swiperSlide *ngFor="let slide of slides">
+      <div>Slide</div>
+    </ng-template>
+  </swiper>
 </div>
