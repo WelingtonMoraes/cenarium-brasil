@@ -177,14 +177,53 @@
   </div>
 </div>
 
-<div class="employees container alignVertical">
-  <swiper>
-    <ng-template swiperSlide>
-      <div>Slide</div>
-    </ng-template>
+<div class="employees alignVertical">
+  <div class="col-12 alignVertical">
+    <h2>Conheça a nossa <br /><b>EQUIPE</b></h2>
+  </div>
 
-    <ng-template swiperSlide *ngFor="let slide of slides">
-      <div>Slide</div>
+  <swiper
+    class="employees__swiper"
+    [slidesPerView]="5"
+    [spaceBetween]="50"
+    [navigation]="true"
+    [pagination]="{ clickable: true }"
+    [scrollbar]="{ draggable: true }"
+  >
+    <ng-template swiperSlide>
+      <div class="employees__swiper--card">
+        <div class="item"></div>
+      </div>
+    </ng-template>
+    <ng-template swiperSlide>
+      <div class="employees__swiper--card">
+        <div class="item"></div>
+      </div>
+    </ng-template>
+    <ng-template swiperSlide>
+      <div class="employees__swiper--card">
+        <div class="item"></div>
+      </div>
+    </ng-template>
+    <ng-template swiperSlide>
+      <div class="employees__swiper--card">
+        <div class="item"></div>
+      </div>
+    </ng-template>
+    <ng-template swiperSlide>
+      <div class="employees__swiper--card">
+        <div class="item"></div>
+      </div>
+    </ng-template>
+    <ng-template swiperSlide>
+      <div class="employees__swiper--card">
+        <div class="item"></div>
+      </div>
+    </ng-template>
+    <ng-template swiperSlide>
+      <div class="employees__swiper--card">
+        <div class="item"></div>
+      </div>
     </ng-template>
   </swiper>
 </div>

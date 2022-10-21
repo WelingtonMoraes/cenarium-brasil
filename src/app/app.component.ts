@@ -1,7 +1,8 @@
-import { Component, NgModule } from '@angular/core';
-import { SwiperEvents } from 'swiper/types';
-import { SwiperModule } from 'swiper/angular';
-import { CommonModule } from '@angular/common';
+import { Component, NgModule, ViewEncapsulation } from '@angular/core';
+// import Swiper core and required modules
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+// install Swiper modules
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 @Component({
   selector: 'app-root',
@@ -10,13 +11,6 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent {
   title = 'cenarium';
-
-  onBeforeTransition(
-    eventParams: Parameters<SwiperEvents['beforeTransitionStart']>
-  ) {
-    const [swiper, speed, internal] = eventParams;
-    console.log({ swiper, speed, internal });
-  }
 
   public openTab(_tab: string) {
     console.log(_tab);
