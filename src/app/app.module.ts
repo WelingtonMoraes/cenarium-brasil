@@ -4,10 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SwiperModule } from 'swiper/angular';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, SwiperModule],
+  imports: [BrowserModule, AppRoutingModule, SwiperModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

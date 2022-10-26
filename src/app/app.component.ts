@@ -1,3 +1,4 @@
+import { MatIconModule } from '@angular/material/icon';
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 // import Swiper core and required modules
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
@@ -12,7 +13,7 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
   encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent {
-  @ViewChild('swiper', { static: false }) swiper?: SwiperComponent
+  @ViewChild('swiper', { static: false }) swiper?: SwiperComponent;
   title = 'cenarium';
 
   public openTab(_tab: string) {
