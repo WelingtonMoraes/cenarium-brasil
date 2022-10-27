@@ -212,15 +212,7 @@
     <h2>Conheça a nossa <br /><b>EQUIPE</b></h2>
   </div>
 
-  <swiper
-    #swiper
-    [slidesPerView]="4"
-    [centeredSlides]="true"
-    [spaceBetween]="30"
-    [grabCursor]="true"
-    [autoHeight]="true"
-    class="employees__swiper"
-  >
+  <swiper #swiper [config]="swiperConfig" class="employees__swiper">
     <ng-template swiperSlide>
       <div class="employees__swiper--card">
         <div class="item">

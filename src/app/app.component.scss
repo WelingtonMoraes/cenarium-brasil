@@ -174,6 +174,11 @@ nav{
     font-size: 54px;
     line-height: 78px;
     text-transform: uppercase;
+
+    @media (max-width: 480px) {
+      font-size: 34px;
+      line-height: 58px;
+    }
   }
 
   &__tabs{
@@ -193,6 +198,12 @@ nav{
         text-transform: uppercase;
         color: #000000;
         opacity: 0.2;
+
+        @media (max-width: 480px) {
+          font-size: 22px;
+          line-height: 32px;
+          letter-spacing: 0.05em;
+        }
       }
 
       .active{
@@ -214,6 +225,16 @@ nav{
           min-height: 337px;
           object-fit: cover;
           border: 8px solid #fff;
+
+          @media (max-width: 480px) {
+            min-height: 200px;
+          }
+        }
+      }
+
+      @media (max-width: 480px) {
+        .col-3 {
+          width: 50%;
         }
       }
     }
@@ -231,6 +252,10 @@ nav{
 
       img{
         width: 100%;
+
+        @media (max-width: 480px) {
+          display: none;
+        }
       }
 
       .txtTitle{
@@ -244,6 +269,14 @@ nav{
         font-size: 40px;
         line-height: 59px;
         text-transform: uppercase;
+
+        @media (max-width: 480px) {
+          position: relative;
+          left: 0px;
+          bottom: 0px;
+          color: #000;
+          text-align: center;
+        }
       }
 
       .txtSubTitle{
@@ -257,8 +290,24 @@ nav{
         font-size: 48px;
         line-height: 59px;
         text-transform: uppercase;
+
+        @media (max-width: 480px) {
+          position: relative;
+          left: 0px;
+          bottom: 0px;
+          color: #DB9214;
+          text-align: center;
+        }
       }
     }
+
+    @media (max-width: 480px) {
+      width: 90%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding-bottom: 200px;
   }
 }
 
@@ -295,6 +344,10 @@ nav{
         font-weight: 600;
         font-size: 24px;
         padding: 0px 5%;
+
+        @media (max-width: 480px) {
+          font-size: 22px;
+        }
       }
 
       p{
@@ -305,6 +358,16 @@ nav{
         font-size: 20px;
         line-height: 24px;
         padding: 0px 5%;
+
+        @media (max-width: 480px) {
+          font-size: 18px;
+        }
+      }
+    }
+
+    @media (max-width: 480px) {
+      .col-4{
+        width: 100%;
       }
     }
   }
@@ -333,6 +396,12 @@ nav{
       b{
         font-weight: 800;
       }
+
+      @media (max-width: 480px) {
+        font-size: 36px;
+        line-height: 42px;
+        letter-spacing: 0.05em;
+      }
     }
 
     p{
@@ -347,6 +416,13 @@ nav{
         font-weight: 700;
         color: #fff;
       }
+
+      @media (max-width: 480px) {
+        font-size: 28px;
+        line-height: 36px;
+        letter-spacing: 0.05em;
+        margin-bottom: 20px;
+      }
     }
 
     .marginTop{
@@ -360,6 +436,20 @@ nav{
       object-fit: cover;
       border: 8px solid #fff;
       border-radius: 16px;
+
+      @media (max-width: 480px) {
+        height: 200px;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .col-7{
+      width: 100%;
+    }
+
+    .col-5{
+      width: 100%;
     }
   }
 }
@@ -378,6 +468,12 @@ nav{
     b{
       font-weight: 800;
     }
+
+    @media (max-width: 480px) {
+      font-size: 36px;
+      line-height: 42px;
+      letter-spacing: 0.05em;
+    }
   }
 
   &__swiper {
@@ -395,6 +491,10 @@ nav{
     .swiper-slide-active {
       img{
         min-height: 495px !important;
+
+        @media (max-width: 480px) {
+          min-height: 395px !important;
+        }
       }
     }
 
@@ -420,6 +520,10 @@ nav{
             object-fit: cover;
             border-radius: 16px;
             transition: all 0.3s;
+
+            @media (max-width: 480px) {
+              min-height: 308px;
+            }
           }
         }
 
@@ -430,6 +534,11 @@ nav{
             font-size: 20px;
             line-height: 29px;
             letter-spacing: 0px;
+
+            @media (max-width: 480px) {
+              font-size: 18px;
+              line-height: 26px;
+            }
           }
 
           p{
@@ -437,9 +546,18 @@ nav{
             font-weight: 400;
             font-size: 16px;
             line-height: 24px;
+
+            @media (max-width: 480px) {
+              font-size: 14px;
+              line-height: 22px;
+            }
           }
         }
       }
+    }
+
+    @media (max-width: 480px) {
+      min-height: 550px;
     }
   }
 }
@@ -459,6 +577,12 @@ nav{
       line-height: 78px;
       letter-spacing: 0.15em;
       margin: 0px;
+
+      @media (max-width: 480px) {
+        font-size: 38px;
+        line-height: 46px;
+        text-align: center;
+      }
     }
 
     p{
@@ -467,6 +591,17 @@ nav{
       line-height: 44px;
       color: #FFFFFF;
       margin: 0px;
+
+      @media (max-width: 480px) {
+        font-size: 26px;
+        line-height: 30px;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      padding: 40px 5%;
+      height: auto;
     }
   }
 
@@ -501,6 +636,11 @@ nav{
           line-height: 29px;
           margin-bottom: 16px;
           display: block;
+
+          @media (max-width: 480px) {
+            font-size: 18px;
+            margin-bottom: 10px;
+          }
         }
 
         input, textarea{
@@ -510,10 +650,21 @@ nav{
           padding: 15px 10px;
           font-size: 20px;
           box-sizing: border-box;
+
+          @media (max-width: 480px) {
+            padding: 10px 5px;
+            font-size: 16px;
+          }
         }
 
         textarea{
           min-height: 205px;
+          font-size: 20px;
+
+          @media (max-width: 480px) {
+            min-height: 105px;
+            font-size: 16px;
+          }
         }
 
         .button{
@@ -533,6 +684,10 @@ nav{
           }
         }
       }
+
+      @media (max-width: 480px) {
+        min-height: auto;
+      }
     }
 
     &--redes{
@@ -543,6 +698,12 @@ nav{
 
         b{
           font-weight:700;
+        }
+
+        @media (max-width: 480px) {
+          font-size: 28px;
+          line-height: 32px;
+          text-align: center;
         }
       }
 
@@ -569,8 +730,36 @@ nav{
             color: #D9D9D9;
             background: #D68518;
           }
+
+          @media (max-width: 480px) {
+            width: 40px;
+            height: 40px;
+            font-size: 25px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          font-size: 16px;
+          line-height: 20px;
+          padding: 15px 0px;
         }
       }
+
+      @media (max-width: 480px) {
+        .col-10{
+          width: 100%;
+        }
+      }
+    }
+
+    @media (max-width: 480px) {
+      padding: 50px 0px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .col-6{
+      width: 90%;
     }
   }
 }

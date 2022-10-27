@@ -21,6 +21,23 @@ export class AppComponent {
   faWhatsapp = faWhatsapp;
   faEnvelope = faEnvelope;
 
+  swiperConfig: any = {
+    slidesPerView: 1,
+    centeredSlides: true,
+    spaceBetween: 20,
+    grabCursor: true,
+    autoHeight: true,
+    breakpoints: {
+      480: {
+        slidesPerView: 4,
+        centeredSlides: true,
+        spaceBetween: 30,
+        grabCursor: true,
+        autoHeight: true,
+      },
+    },
+  };
+
   scroll(el: HTMLElement) {
     console.log(el);
     el.scrollIntoView({ behavior: 'smooth', block: 'start' });
