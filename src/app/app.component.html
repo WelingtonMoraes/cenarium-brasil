@@ -1,20 +1,20 @@
 <nav class="nav alinItem">
   <div class="container nav__content flex flex-wrap">
     <div class="col-4">
-      <img src="../assets/images/Logo.png" alt="" />
+      <img (click)="scroll(home)" src="../assets/images/Logo.png" alt="" />
     </div>
     <div class="col-8 alignVertical">
       <ul class="alignVerticalEnd">
-        <li><a href="#">Portfólio</a></li>
-        <li><a href="#">Sobre nós</a></li>
-        <li><a href="#">Equipe</a></li>
-        <li class="contato"><a href="#">Contato</a></li>
+        <li><a (click)="scroll(portfolio)">Portfólio</a></li>
+        <li><a (click)="scroll(sobre)">Sobre nós</a></li>
+        <li><a (click)="scroll(equipe)">Equipe</a></li>
+        <li class="contato"><a (click)="scroll(contato)">Contato</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<div class="banner alignVertical">
+<div #home class="banner alignVertical">
   <div class="banner__content alignVertical">
     <h1>cenários, exposições e iluminação</h1>
     <h3>
@@ -22,12 +22,12 @@
       BRASIL.
     </h3>
     <div class="col-12 alignVertical">
-      <a class="alignVertical">CONHECER A CENARIUM</a>
+      <a (click)="scroll(start)" class="alignVertical">CONHECER A CENARIUM</a>
     </div>
   </div>
 </div>
 
-<div class="about alinItem">
+<div #start class="about alinItem">
   <div class="about__left alignVerticalEnd">
     <img src="../assets/images/Logo-about.png" alt="" />
   </div>
@@ -45,7 +45,7 @@
   <img class="about__bottom" src="../assets/images/bottom-about.png" alt="" />
 </div>
 
-<div class="specialties container alignVertical">
+<div #portfolio class="specialties container alignVertical">
   <h2>nossas especialidades</h2>
 
   <div class="specialties__tabs col-12">
@@ -121,7 +121,7 @@
   </div>
 </div>
 
-<div class="whatDo container alignVertical">
+<div #sobre class="whatDo container alignVertical">
   <div class="whatDo__body alignVertical">
     <div class="col-4 alignVertical">
       <div class="whatDo__body--card alignVertical">
@@ -196,18 +196,18 @@
       </p>
     </div>
     <div class="col-7 alignVerticalEnd">
-      <img src="https://via.placeholder.com/738x456" alt="" />
+      <img src="../assets/images/estruture2.png" alt="" />
     </div>
     <div class="marginTop col-7 alignVerticalStart">
-      <img src="https://via.placeholder.com/738x456" alt="" />
+      <img src="../assets/images/estruture1.png" alt="" />
     </div>
     <div class="marginTop col-5 alignVerticalEnd">
-      <img src="https://via.placeholder.com/738x456" alt="" />
+      <img src="../assets/images/estruture3.png" alt="" />
     </div>
   </div>
 </div>
 
-<div class="employees alignVertical">
+<div #equipe class="employees alignVertical">
   <div class="col-12 alignVertical">
     <h2>Conheça a nossa <br /><b>EQUIPE</b></h2>
   </div>
@@ -346,7 +346,7 @@
   </swiper>
 </div>
 
-<div class="contact alignVertical">
+<div #contato class="contact alignVertical">
   <div class="contact__title alignVertical">
     <h2>Vamos criar algo juntos?</h2>
     <p>Entre em contato e conte a sua ideia para a gente.</p>
@@ -384,12 +384,24 @@
       <div class="contact__body--redes alignVertical col-12">
         <div class="col-10">
           <h3>Mande uma mensagem e siga-nos nas <b>redes sociais</b></h3>
-
-          <mat-icon
-            aria-hidden="false"
-            aria-label="Example home icon"
-            fontIcon="home"
-          ></mat-icon>
+          <div class="alignVerticalStart col-12">
+            <span class="alignVerticalStart col-12">
+              <fa-icon class="alignVertical" [icon]="faWhatsapp"></fa-icon>
+              +55 (41) 9 9135-2345
+            </span>
+          </div>
+          <div class="alignVerticalStart col-12">
+            <span class="alignVerticalStart col-12">
+              <fa-icon class="alignVertical" [icon]="faInstagram"></fa-icon>
+              @Cenariumbrasil
+            </span>
+          </div>
+          <div class="alignVerticalStart col-12">
+            <span class="alignVerticalStart col-12">
+              <fa-icon class="alignVertical" [icon]="faEnvelope"></fa-icon>
+              Contato@cenarium.com.br
+            </span>
+          </div>
         </div>
       </div>
     </div>

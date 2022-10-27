@@ -76,6 +76,22 @@ $mobileWidth: 980px;
   font-weight: bold;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+:target {
+  scroll-margin-top: .8em;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:target {
+  scroll-margin-top: .8em;
+}
+
 body {
   margin: 0;
   color: #0e0000;
@@ -177,6 +193,3 @@ a{
 b{
   font-weight: 600;
 }
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

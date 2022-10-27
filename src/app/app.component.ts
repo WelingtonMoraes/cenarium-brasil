@@ -3,6 +3,8 @@ import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 // import Swiper core and required modules
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { SwiperComponent } from 'swiper/angular';
+import { faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 // install Swiper modules
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
@@ -15,6 +17,14 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 export class AppComponent {
   @ViewChild('swiper', { static: false }) swiper?: SwiperComponent;
   title = 'cenarium';
+  faInstagram = faInstagram;
+  faWhatsapp = faWhatsapp;
+  faEnvelope = faEnvelope;
+
+  scroll(el: HTMLElement) {
+    console.log(el);
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 
   public openTab(_tab: string) {
     console.log(_tab);

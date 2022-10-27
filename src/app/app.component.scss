@@ -64,6 +64,7 @@ nav{
   height: calc(100vh - 90px);
   margin-top: 90px;
   background-color: #DC9713;
+  scroll-margin-top: 200px;
 
   background-image: url("../assets/banners/bannerHome.png");
   background-position: top;
@@ -84,7 +85,7 @@ nav{
       color: #EAEAEA;
       font-variant: small-caps;
       margin: 0 auto;
-      margin-top: 15px;
+      font-weight: 300;
     }
 
     a{
@@ -109,6 +110,7 @@ nav{
 .about{
   margin-bottom: 200px;
   position: relative;
+  scroll-margin-top: 90px;
 
   &__left{
     width: 46%;
@@ -164,6 +166,7 @@ nav{
 .specialties{
   position: relative;
   padding-bottom: 400px;
+  scroll-margin-top: 100px;
 
   h2{
     font-style: normal;
@@ -261,6 +264,7 @@ nav{
 
 .whatDo{
   padding: 50px 0px;
+  scroll-margin-top: 260px;
 
   &__body{
     width: 90%;
@@ -362,6 +366,7 @@ nav{
 
 .employees{
   padding-bottom: 100px;
+  scroll-margin-top: 90px;
 
   h2{
     font-weight: 600;
@@ -440,6 +445,8 @@ nav{
 }
 
 .contact{
+  scroll-margin-top: 100px;
+
   &__title{
     width: 100%;
     height: 355px;
@@ -516,6 +523,7 @@ nav{
           padding: 15px;
           border: 0 solid;
           border-radius: 8px;
+          font-weight: 600;
           transition: 0.3s;
           cursor: pointer;
 
@@ -535,6 +543,32 @@ nav{
 
         b{
           font-weight:700;
+        }
+      }
+
+      span{
+        font-style: normal;
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 44px;
+        color: #000000;
+        padding: 30px 0px;
+
+        fa-icon{
+          font-size: 45px;
+          margin-right: 5%;
+          width: 80px;
+          height: 80px;
+          background: #D9D9D9;
+          border-radius: 11px;
+          color: #D68518;
+          transition: 0.5s;
+          cursor: pointer;
+
+          &:hover{
+            color: #D9D9D9;
+            background: #D68518;
+          }
         }
       }
     }
