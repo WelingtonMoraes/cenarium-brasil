@@ -55,6 +55,20 @@ nav{
           background-color: #fff;
         }
       }
+
+      @media (max-width: 480px) {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .col-4{
+        width: 50%;
+      }
+
+      .col-8{
+        width: 50%;
+      }
     }
   }
 }
@@ -79,6 +93,13 @@ nav{
       color: #EAEAEA;
       font-variant: small-caps;
       margin: 0 auto;
+
+      @media (max-width: 480px) {
+        font-size: 40px;
+        line-height: 35px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
     }
 
     h3{
@@ -86,6 +107,12 @@ nav{
       font-variant: small-caps;
       margin: 0 auto;
       font-weight: 300;
+
+      @media (max-width: 480px) {
+        font-size: 18px;
+        line-height: 22px;
+        text-align: center;
+      }
     }
 
     a{
@@ -102,6 +129,12 @@ nav{
       &:hover{
         color: #DC9713;
         background-color: #fff;
+      }
+
+      @media (max-width: 480px) {
+        padding: 10px 30px;
+        font-size: 16px;
+        line-height: 30px;
       }
     }
   }
@@ -122,12 +155,23 @@ nav{
       width: 85%;
       max-width: 406px;
       margin-right: 13%;
+
+      @media (max-width: 480px) {
+        margin: 0px auto;
+        display: block;
+      }
+    }
+
+    @media (max-width: 480px) {
+      height: 200px;
+      width: 100%;
+      padding: 20px 0px;
     }
   }
 
   &__right{
     width: 54%;
-    height: 450px;
+    min-height: 450px;
     background: linear-gradient(10.22deg, #DC9713 19.68%, #DB9214 44.96%, #D68518 73.15%, #CF6E1F 103.29%, #CB6223 116.9%);
     color: #fff;
     padding-bottom: 50px;
@@ -143,6 +187,11 @@ nav{
         line-height: 59px;
         margin: 0px;
         margin-bottom: 40px;
+
+        @media (max-width: 480px) {
+          font-size: 32px;
+          line-height: 40px;
+        }
       }
 
       p{
@@ -151,7 +200,18 @@ nav{
         font-size: 20px;
         line-height: 29px;
         letter-spacing: 0.15em;
+
+        @media (max-width: 480px) {
+          font-size: 16px;
+          line-height: 22px;
+          letter-spacing: 0.05em;
+        }
       }
+    }
+
+    @media (max-width: 480px) {
+      width: 100%;
+      min-height: 300px;
     }
   }
 
@@ -160,6 +220,10 @@ nav{
     bottom: 0px;
     left: 0px;
     width: 100%;
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: 70px;
   }
 }
 
@@ -178,6 +242,8 @@ nav{
     @media (max-width: 480px) {
       font-size: 34px;
       line-height: 58px;
+      text-align: center;
+      margin: 0px;
     }
   }
 
@@ -200,14 +266,19 @@ nav{
         opacity: 0.2;
 
         @media (max-width: 480px) {
-          font-size: 22px;
-          line-height: 32px;
+          font-size: 12px;
+          line-height: 16px;
           letter-spacing: 0.05em;
+          text-align: center;
         }
       }
 
       .active{
         opacity: 1;
+      }
+
+      @media (max-width: 480px) {
+        margin-top: 20px;
       }
     }
 
@@ -233,6 +304,8 @@ nav{
       }
 
       @media (max-width: 480px) {
+        margin-top: 20px;
+
         .col-3 {
           width: 50%;
         }
