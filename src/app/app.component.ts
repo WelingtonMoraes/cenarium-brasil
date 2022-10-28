@@ -8,6 +8,9 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 // install Swiper modules
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
+//API
+import { WhatWeDoService } from './services/what-we-do.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -28,8 +31,15 @@ export class AppComponent {
     grabCursor: true,
     autoHeight: true,
     breakpoints: {
-      480: {
+      1080: {
         slidesPerView: 4,
+        centeredSlides: true,
+        spaceBetween: 30,
+        grabCursor: true,
+        autoHeight: true,
+      },
+      480: {
+        slidesPerView: 2,
         centeredSlides: true,
         spaceBetween: 30,
         grabCursor: true,
@@ -37,6 +47,12 @@ export class AppComponent {
       },
     },
   };
+
+  constructor(private user: WhatWeDoService) {
+    this.user.getWhatWedo().subscribe((data) => {
+      console.warn(data);
+    });
+  }
 
   scroll(el: HTMLElement) {
     console.log(el);
