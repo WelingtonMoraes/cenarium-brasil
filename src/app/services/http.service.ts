@@ -17,13 +17,9 @@ import {
 })
 export class Http {
   private newRequisitionUrl: boolean[];
-
   private stopAutoUpdateValue: boolean[];
-
   private repeatSubscription: Subscription[];
-
   private repeatObservables: Observable<any[]>[];
-
   private repeatSubjects: BehaviorSubject<any[]>[];
 
   constructor(private http: HttpClient, private sanitizer: DomSanitizer) {
