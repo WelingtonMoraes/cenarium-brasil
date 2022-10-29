@@ -48,8 +48,8 @@ export class AppComponent {
     },
   };
 
-  constructor(private user: WhatWeDoService) {
-    this.user.getWhatWedo().subscribe((data) => {
+  constructor(private whatWeDo: WhatWeDoService) {
+    this.whatWeDo.getWhatWeDo().subscribe((data: any) => {
       console.warn(data);
     });
   }

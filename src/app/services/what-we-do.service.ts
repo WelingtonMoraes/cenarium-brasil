@@ -13,7 +13,7 @@ export class WhatWeDoService {
     return this.http.get(url);
   }
 
-  // public getWhatWedo(): any {
+  // public getWhatWeDo(): any {
   //   return this.http.get('what-we-do');
   // }
 }
