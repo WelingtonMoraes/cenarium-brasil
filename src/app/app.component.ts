@@ -31,15 +31,15 @@ export class AppComponent {
     grabCursor: true,
     autoHeight: true,
     breakpoints: {
-      1080: {
-        slidesPerView: 4,
+      480: {
+        slidesPerView: 2,
         centeredSlides: true,
         spaceBetween: 30,
         grabCursor: true,
         autoHeight: true,
       },
-      480: {
-        slidesPerView: 2,
+      1080: {
+        slidesPerView: 4,
         centeredSlides: true,
         spaceBetween: 30,
         grabCursor: true,
@@ -48,15 +48,21 @@ export class AppComponent {
     },
   };
 
-  constructor(private whatWeDo: WhatWeDoService) {
-    this.whatWeDo.getWhatWeDo().subscribe((data: any) => {
-      console.warn(data);
+  constructor(private whatWeDoService: WhatWeDoService) {
+    this.whatWeDoService.getWhatWedo().subscribe((data: any) => {
+      console.log(data);
     });
   }
 
   scroll(el: HTMLElement) {
     console.log(el);
     el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  ngOnInit(): void {
+    this.whatWeDoService.getWhatWedo().subscribe((data: any) => {
+      console.log(data);
+    });
   }
 
   public openTab(_tab: string) {
