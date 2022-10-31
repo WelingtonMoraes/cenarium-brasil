@@ -7,6 +7,7 @@ import { SwiperModule } from 'swiper/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
+import { ModalItemComponent } from './components/modal-item/modal-item.component';
 
 @NgModule({
   declarations: [AppComponent],

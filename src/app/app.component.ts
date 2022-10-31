@@ -10,6 +10,9 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 //API
 import { WhatWeDoService } from './services/what-we-do.service';
+import { SpecialityService } from './services/speciality.service';
+import { TeamService } from './services/team.service';
+import { ModalItemComponent } from './components/modal-item/modal-item.component';
 
 @Component({
   selector: 'app-root',
@@ -28,6 +31,8 @@ export class AppComponent {
 
   //array objetos
   whatWeDo: any;
+  speciality: any;
+  team: any;
 
   //swiper
   swiperConfig: any = {
@@ -54,7 +59,11 @@ export class AppComponent {
     },
   };
 
-  constructor(private whatWeDoService: WhatWeDoService) {}
+  constructor(
+    private whatWeDoService: WhatWeDoService,
+    private specialityService: SpecialityService,
+    private teamService: TeamService
+  ) {}
 
   scroll(el: HTMLElement) {
     console.log(el);
@@ -63,8 +72,15 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.whatWeDoService.getWhatWedo().subscribe((data: any) => {
-      console.log(data);
       this.whatWeDo = data;
+    });
+
+    this.specialityService.getSpeciality().subscribe((data: any) => {
+      this.speciality = data;
+    });
+
+    this.teamService.getTeam().subscribe((data: any) => {
+      this.team = data;
     });
   }
 

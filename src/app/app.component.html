@@ -60,54 +60,17 @@
         <a (click)="openTab('tab3')">iluminação cênica</a>
       </div>
     </div>
-    <div *ngIf="true" class="specialties__tabs--body alignVerticalStart">
-      <div class="item col-3 alignVertical">
-        <img src="https://via.placeholder.com/300" alt="" />
-      </div>
-      <div class="item col-3 alignVertical">
-        <img src="https://via.placeholder.com/300" alt="" />
-      </div>
-      <div class="item col-3 alignVertical">
-        <img src="https://via.placeholder.com/300" alt="" />
-      </div>
-      <div class="item col-3 alignVertical">
-        <img src="https://via.placeholder.com/300" alt="" />
-      </div>
-      <div class="item col-3 alignVertical">
-        <img src="https://via.placeholder.com/300" alt="" />
-      </div>
-      <div class="item col-3 alignVertical">
-        <img src="https://via.placeholder.com/300" alt="" />
-      </div>
-      <div class="item col-3 alignVertical">
-        <img src="https://via.placeholder.com/300" alt="" />
-      </div>
-      <div class="item col-3 alignVertical">
-        <img src="https://via.placeholder.com/300" alt="" />
-      </div>
-      <div class="item col-3 alignVertical">
-        <img src="https://via.placeholder.com/300" alt="" />
-      </div>
-      <div class="item col-3 alignVertical">
-        <img src="https://via.placeholder.com/300" alt="" />
-      </div>
-      <div class="item col-3 alignVertical">
-        <img src="https://via.placeholder.com/300" alt="" />
-      </div>
-      <div class="item col-3 alignVertical">
-        <img src="https://via.placeholder.com/300" alt="" />
-      </div>
-    </div>
 
-    <div *ngIf="false" class="specialties__tabs--body alignVerticalStart">
-      <div class="item col-3 alignVertical">
+    <div
+      *ngFor="let specialties of speciality"
+      class="specialties__tabs--body alignVerticalStart"
+    >
+      <div
+        *ngFor="let specialtiesImg of specialties.images"
+        class="item col-3 alignVertical"
+      >
         <img src="https://via.placeholder.com/300" alt="" />
-      </div>
-    </div>
-
-    <div *ngIf="false" class="specialties__tabs--body alignVerticalStart">
-      <div class="item col-3 alignVertical">
-        <img src="https://via.placeholder.com/300" alt="" />
+        <!-- <img src="{{ specialtiesImg[0] }}" alt="" /> -->
       </div>
     </div>
   </div>
@@ -125,7 +88,8 @@
   <div class="whatDo__body alignVertical">
     <div *ngFor="let whatDo of whatWeDo" class="col-4 alignVertical">
       <div class="whatDo__body--card alignVertical">
-        <img src="{{ whatDo.image }}" alt="" />
+        <img src="https://via.placeholder.com/300" alt="" />
+        <!-- <img src="{{ whatDo.image }}" alt="" /> -->
         <h3>{{ whatDo.name }}</h3>
         <p>
           {{ whatDo.description }}
@@ -162,124 +126,16 @@
   </div>
 
   <swiper #swiper [config]="swiperConfig" class="employees__swiper">
-    <ng-template swiperSlide>
+    <ng-template *ngFor="let employees of team" swiperSlide>
       <div class="employees__swiper--card">
         <div class="item">
           <div class="item__img">
             <img src="https://via.placeholder.com/738x456" alt="" />
+            <!-- <img src="{{ employees.image }}" alt="" /> -->
           </div>
           <div class="item__txt">
-            <h2>Nome do fulano</h2>
-            <a
-              >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-              urna nunc enim dictum fames lectus mattis sodales. Vel pretium
-              aenean fringilla parturient cursus a dui.</a
-            >
-          </div>
-        </div>
-      </div>
-    </ng-template>
-
-    <ng-template swiperSlide>
-      <div class="employees__swiper--card">
-        <div class="item">
-          <div class="item__img">
-            <img src="https://via.placeholder.com/738x456" alt="" />
-          </div>
-          <div class="item__txt">
-            <h2>Nome do fulano</h2>
-            <a
-              >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-              urna nunc enim dictum fames lectus mattis sodales. Vel pretium
-              aenean fringilla parturient cursus a dui.</a
-            >
-          </div>
-        </div>
-      </div>
-    </ng-template>
-
-    <ng-template swiperSlide>
-      <div class="employees__swiper--card">
-        <div class="item">
-          <div class="item__img">
-            <img src="https://via.placeholder.com/738x456" alt="" />
-          </div>
-          <div class="item__txt">
-            <h2>Nome do fulano</h2>
-            <a
-              >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-              urna nunc enim dictum fames lectus mattis sodales. Vel pretium
-              aenean fringilla parturient cursus a dui.</a
-            >
-          </div>
-        </div>
-      </div>
-    </ng-template>
-
-    <ng-template swiperSlide>
-      <div class="employees__swiper--card">
-        <div class="item">
-          <div class="item__img">
-            <img src="https://via.placeholder.com/738x456" alt="" />
-          </div>
-          <div class="item__txt">
-            <h2>Nome do fulano</h2>
-            <a
-              >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-              urna nunc enim dictum fames lectus mattis sodales. Vel pretium
-              aenean fringilla parturient cursus a dui.</a
-            >
-          </div>
-        </div>
-      </div>
-    </ng-template>
-    <ng-template swiperSlide>
-      <div class="employees__swiper--card">
-        <div class="item">
-          <div class="item__img">
-            <img src="https://via.placeholder.com/738x456" alt="" />
-          </div>
-          <div class="item__txt">
-            <h2>Nome do fulano</h2>
-            <a
-              >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-              urna nunc enim dictum fames lectus mattis sodales. Vel pretium
-              aenean fringilla parturient cursus a dui.</a
-            >
-          </div>
-        </div>
-      </div>
-    </ng-template>
-    <ng-template swiperSlide>
-      <div class="employees__swiper--card">
-        <div class="item">
-          <div class="item__img">
-            <img src="https://via.placeholder.com/738x456" alt="" />
-          </div>
-          <div class="item__txt">
-            <h2>Nome do fulano</h2>
-            <a
-              >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-              urna nunc enim dictum fames lectus mattis sodales. Vel pretium
-              aenean fringilla parturient cursus a dui.</a
-            >
-          </div>
-        </div>
-      </div>
-    </ng-template>
-    <ng-template swiperSlide>
-      <div class="employees__swiper--card">
-        <div class="item">
-          <div class="item__img">
-            <img src="https://via.placeholder.com/738x456" alt="" />
-          </div>
-          <div class="item__txt">
-            <h2>Nome do fulano</h2>
-            <a
-              >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-              urna nunc enim dictum fames lectus mattis sodales. Vel pretium
-              aenean fringilla parturient cursus a dui.</a
-            >
+            <h2>{{ employees.name }}</h2>
+            <a>{{ employees.description }}</a>
           </div>
         </div>
       </div>
