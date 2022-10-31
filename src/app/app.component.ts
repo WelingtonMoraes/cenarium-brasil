@@ -20,10 +20,16 @@ import { WhatWeDoService } from './services/what-we-do.service';
 export class AppComponent {
   @ViewChild('swiper', { static: false }) swiper?: SwiperComponent;
   title = 'cenarium';
+
+  //icons
   faInstagram = faInstagram;
   faWhatsapp = faWhatsapp;
   faEnvelope = faEnvelope;
 
+  //array objetos
+  whatWeDo: any;
+
+  //swiper
   swiperConfig: any = {
     slidesPerView: 1,
     centeredSlides: true,
@@ -48,11 +54,7 @@ export class AppComponent {
     },
   };
 
-  constructor(private whatWeDoService: WhatWeDoService) {
-    // this.whatWeDoService.getWhatWedo().subscribe((data: any) => {
-    //   console.log(data);
-    // });
-  }
+  constructor(private whatWeDoService: WhatWeDoService) {}
 
   scroll(el: HTMLElement) {
     console.log(el);
@@ -62,6 +64,7 @@ export class AppComponent {
   ngOnInit(): void {
     this.whatWeDoService.getWhatWedo().subscribe((data: any) => {
       console.log(data);
+      this.whatWeDo = data;
     });
   }
 
