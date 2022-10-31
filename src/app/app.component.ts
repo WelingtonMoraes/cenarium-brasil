@@ -1,10 +1,10 @@
-import { MatIconModule } from '@angular/material/icon';
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 // import Swiper core and required modules
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { SwiperComponent } from 'swiper/angular';
 import { faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+
 // install Swiper modules
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
@@ -12,7 +12,8 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 import { WhatWeDoService } from './services/what-we-do.service';
 import { SpecialityService } from './services/speciality.service';
 import { TeamService } from './services/team.service';
-import { ModalItemComponent } from './components/modal-item/modal-item.component';
+
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 
 @Component({
   selector: 'app-root',
@@ -82,6 +83,10 @@ export class AppComponent {
     this.teamService.getTeam().subscribe((data: any) => {
       this.team = data;
     });
+  }
+
+  openModal() {
+    console.log('teste');
   }
 
   public openTab(_tab: string) {

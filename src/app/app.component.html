@@ -69,8 +69,12 @@
         *ngFor="let specialtiesImg of specialties.images"
         class="item col-3 alignVertical"
       >
-        <img src="https://via.placeholder.com/300" alt="" />
-        <!-- <img src="{{ specialtiesImg[0] }}" alt="" /> -->
+        <img
+          (click)="openModal()"
+          src="https://via.placeholder.com/300"
+          alt=""
+        />
+        <!-- <img (click)="openDialog()" src="{{ specialtiesImg[0] }}" alt="" /> -->
       </div>
     </div>
   </div>

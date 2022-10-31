@@ -15,13 +15,11 @@ export interface DialogData {
   templateUrl: './modal-item.component.html',
   styleUrls: ['./modal-item.component.scss'],
 })
-export class ModalItemComponent implements OnInit {
+export class ModalItemComponent {
   constructor(
     public dialogRef: MatDialogRef<ModalItemComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {}
-
-  ngOnInit(): void {}
 
   onNoClick(): void {
     this.dialogRef.close();
