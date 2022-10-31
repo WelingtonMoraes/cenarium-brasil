@@ -1,15 +1,17 @@
-import { MatIconModule } from '@angular/material/icon';
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 // import Swiper core and required modules
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { SwiperComponent } from 'swiper/angular';
 import { faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+
 // install Swiper modules
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 //API
 import { WhatWeDoService } from './services/what-we-do.service';
+import { SpecialityService } from './services/speciality.service';
+import { TeamService } from './services/team.service';
 
 @Component({
   selector: 'app-root',
@@ -20,10 +22,18 @@ import { WhatWeDoService } from './services/what-we-do.service';
 export class AppComponent {
   @ViewChild('swiper', { static: false }) swiper?: SwiperComponent;
   title = 'cenarium';
+
+  //icons
   faInstagram = faInstagram;
   faWhatsapp = faWhatsapp;
   faEnvelope = faEnvelope;
 
+  //array objetos
+  whatWeDo: any;
+  speciality: any;
+  team: any;
+
+  //swiper
   swiperConfig: any = {
     slidesPerView: 1,
     centeredSlides: true,
@@ -48,21 +58,33 @@ export class AppComponent {
     },
   };
 
-  constructor(private whatWeDo: WhatWeDoService) {
-    // this.whatWeDo.getWhatWedo().subscribe((data: any) => {
-    //   console.log(data);
-    // });
-  }
-
-  ngOnInit(): void {
-    this.whatWeDo.getWhatWeDo().subscribe((data: any) => {
-      console.log(data);
-    });
-  }
+  constructor(
+    private whatWeDoService: WhatWeDoService,
+    private specialityService: SpecialityService,
+    private teamService: TeamService
+  ) {}
 
   scroll(el: HTMLElement) {
     console.log(el);
     el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  ngOnInit(): void {
+    this.whatWeDoService.getWhatWedo().subscribe((data: any) => {
+      this.whatWeDo = data;
+    });
+
+    this.specialityService.getSpeciality().subscribe((data: any) => {
+      this.speciality = data;
+    });
+
+    this.teamService.getTeam().subscribe((data: any) => {
+      this.team = data;
+    });
+  }
+
+  openModal() {
+    console.log('teste');
   }
 
   public openTab(_tab: string) {

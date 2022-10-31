@@ -60,54 +60,21 @@
         <a (click)="openTab('tab3')">iluminação cênica</a>
       </div>
     </div>
-    <div *ngIf="true" class="specialties__tabs--body alignVerticalStart">
-      <div class="item col-3 alignVertical">
-        <img src="https://www.w3schools.com/images/picture.jpg" alt="" />
-      </div>
-      <div class="item col-3 alignVertical">
-        <img src="https://via.placeholder.com/300" alt="" />
-      </div>
-      <div class="item col-3 alignVertical">
-        <img src="https://via.placeholder.com/300" alt="" />
-      </div>
-      <div class="item col-3 alignVertical">
-        <img src="https://via.placeholder.com/300" alt="" />
-      </div>
-      <div class="item col-3 alignVertical">
-        <img src="https://via.placeholder.com/300" alt="" />
-      </div>
-      <div class="item col-3 alignVertical">
-        <img src="https://via.placeholder.com/300" alt="" />
-      </div>
-      <div class="item col-3 alignVertical">
-        <img src="https://via.placeholder.com/300" alt="" />
-      </div>
-      <div class="item col-3 alignVertical">
-        <img src="https://via.placeholder.com/300" alt="" />
-      </div>
-      <div class="item col-3 alignVertical">
-        <img src="https://via.placeholder.com/300" alt="" />
-      </div>
-      <div class="item col-3 alignVertical">
-        <img src="https://via.placeholder.com/300" alt="" />
-      </div>
-      <div class="item col-3 alignVertical">
-        <img src="https://via.placeholder.com/300" alt="" />
-      </div>
-      <div class="item col-3 alignVertical">
-        <img src="https://via.placeholder.com/300" alt="" />
-      </div>
-    </div>
 
-    <div *ngIf="false" class="specialties__tabs--body alignVerticalStart">
-      <div class="item col-3 alignVertical">
-        <img src="https://via.placeholder.com/300" alt="" />
-      </div>
-    </div>
-
-    <div *ngIf="false" class="specialties__tabs--body alignVerticalStart">
-      <div class="item col-3 alignVertical">
-        <img src="https://via.placeholder.com/300" alt="" />
+    <div
+      *ngFor="let specialties of speciality"
+      class="specialties__tabs--body alignVerticalStart"
+    >
+      <div
+        *ngFor="let specialtiesImg of specialties.images"
+        class="item col-3 alignVertical"
+      >
+        <img
+          (click)="openModal()"
+          src="https://via.placeholder.com/300"
+          alt=""
+        />
+        <!-- <img (click)="openDialog()" src="{{ specialtiesImg[0] }}" alt="" /> -->
       </div>
     </div>
   </div>
@@ -123,63 +90,13 @@
 
 <div #sobre class="whatDo container alignVertical">
   <div class="whatDo__body alignVertical">
-    <div class="col-4 alignVertical">
+    <div *ngFor="let whatDo of whatWeDo" class="col-4 alignVertical">
       <div class="whatDo__body--card alignVertical">
-        <img src="https://via.placeholder.com/379x256" alt="" />
-        <h3>Oktoberfest</h3>
+        <img src="https://via.placeholder.com/300" alt="" />
+        <!-- <img src="{{ whatDo.image }}" alt="" /> -->
+        <h3>{{ whatDo.name }}</h3>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis urna
-          nunc enim dictum fames lectus.
-        </p>
-      </div>
-    </div>
-    <div class="col-4 alignVertical">
-      <div class="whatDo__body--card alignVertical">
-        <img src="https://via.placeholder.com/379x256" alt="" />
-        <h3>Palácio Avenida</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis urna
-          nunc enim dictum fames lectus.
-        </p>
-      </div>
-    </div>
-    <div class="col-4 alignVertical">
-      <div class="whatDo__body--card alignVertical">
-        <img src="https://via.placeholder.com/379x256" alt="" />
-        <h3>Museu Açoriano Mini</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis urna
-          nunc enim dictum fames lectus.
-        </p>
-      </div>
-    </div>
-    <div class="col-4 alignVertical">
-      <div class="whatDo__body--card alignVertical">
-        <img src="https://via.placeholder.com/379x256" alt="" />
-        <h3>Museu Açoriano Mini</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis urna
-          nunc enim dictum fames lectus.
-        </p>
-      </div>
-    </div>
-    <div class="col-4 alignVertical">
-      <div class="whatDo__body--card alignVertical">
-        <img src="https://via.placeholder.com/379x256" alt="" />
-        <h3>Museu Açoriano Mini</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis urna
-          nunc enim dictum fames lectus.
-        </p>
-      </div>
-    </div>
-    <div class="col-4 alignVertical">
-      <div class="whatDo__body--card alignVertical">
-        <img src="https://via.placeholder.com/379x256" alt="" />
-        <h3>Museu Açoriano Mini</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis urna
-          nunc enim dictum fames lectus.
+          {{ whatDo.description }}
         </p>
       </div>
     </div>
@@ -213,10 +130,11 @@
   </div>
 
   <swiper #swiper [config]="swiperConfig" class="employees__swiper">
-    <ng-template swiperSlide>
+    <ng-template *ngFor="let employees of team" swiperSlide>
       <div class="employees__swiper--card">
         <div class="item">
           <div class="item__img">
+            <<<<<<< HEAD
             <img src="https://via.placeholder.com/400x500" alt="" />
           </div>
           <div class="item__txt">
@@ -331,6 +249,14 @@
               urna nunc enim dictum fames lectus mattis sodales. Vel pretium
               aenean fringilla parturient cursus a dui.</a
             >
+            =======
+            <img src="https://via.placeholder.com/738x456" alt="" />
+            <!-- <img src="{{ employees.image }}" alt="" /> -->
+          </div>
+          <div class="item__txt">
+            <h2>{{ employees.name }}</h2>
+            <a>{{ employees.description }}</a>
+            >>>>>>> 32ab2f6bc234c970f43197731771699e06a9e0eb
           </div>
         </div>
       </div>
