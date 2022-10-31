@@ -75,6 +75,7 @@ export class AppComponent {
     });
 
     this.specialityService.getSpeciality().subscribe((data: any) => {
+      console.log(data);
       this.speciality = data;
     });
 
