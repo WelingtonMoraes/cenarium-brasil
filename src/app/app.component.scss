@@ -584,10 +584,10 @@ nav{
 
     .swiper-slide-active {
       img{
-        min-height: 495px !important;
+        height: 495px !important;
 
         @media (max-width: 480px) {
-          min-height: 395px !important;
+          height: 395px !important;
         }
       }
     }
@@ -610,13 +610,13 @@ nav{
 
           img{
             width: 100%;
-            min-height: 408px;
+            height: 408px;
             object-fit: cover;
             border-radius: 16px;
             transition: all 0.3s;
 
             @media (max-width: 480px) {
-              min-height: 308px;
+              height: 308px;
             }
           }
         }

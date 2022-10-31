@@ -48,8 +48,14 @@ export class AppComponent {
     },
   };
 
-  constructor(private whatWeDoService: WhatWeDoService) {
-    this.whatWeDoService.getWhatWedo().subscribe((data: any) => {
+  constructor(private whatWeDo: WhatWeDoService) {
+    // this.whatWeDo.getWhatWedo().subscribe((data: any) => {
+    //   console.log(data);
+    // });
+  }
+
+  ngOnInit(): void {
+    this.whatWeDo.getWhatWeDo().subscribe((data: any) => {
       console.log(data);
     });
   }
@@ -57,12 +63,6 @@ export class AppComponent {
   scroll(el: HTMLElement) {
     console.log(el);
     el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-
-  ngOnInit(): void {
-    this.whatWeDoService.getWhatWedo().subscribe((data: any) => {
-      console.log(data);
-    });
   }
 
   public openTab(_tab: string) {
