@@ -67,7 +67,7 @@
     >
       <div
         *ngFor="let specialtiesImg of specialties.images"
-        [ngClass]="'item col-3 alignVertical' + specialties.id"
+        [ngClass]="'item col-3 alignVertical ' + specialties.id"
       >
         <img
           (click)="modal.toggle()"
@@ -95,8 +95,8 @@
   <div class="whatDo__body alignVertical">
     <div *ngFor="let whatDo of whatWeDo" class="col-4 alignVertical">
       <div class="whatDo__body--card alignVertical">
-        <!-- <img src="https://via.placeholder.com/300" alt="" /> -->
-        <img src="/images{{ whatDo.image }}" alt="" />
+        <img src="https://via.placeholder.com/300" alt="" />
+        <!-- <img src="/images{{ whatDo.image }}" alt="" /> -->
         <h3>{{ whatDo.name }}</h3>
         <p>
           {{ whatDo.description }}
