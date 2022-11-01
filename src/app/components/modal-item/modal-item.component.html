@@ -1,7 +1,17 @@
-<h1 mat-dialog-title>Hi</h1>
-<div mat-dialog-content>
-  <p>What's your favorite animal?</p>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-</div>
+<ng-container *ngIf="mostrar">
+  <div class="modal alignVertical" @modal>
+    <div class="modal__content">
+      <div class="modal__content--header alignVerticalEnd">
+        <img
+          (click)="toggle()"
+          src="../../../assets/icons/iconClose.svg"
+          alt=""
+        />
+      </div>
+      <div class="modal__content--body"></div>
+      <div class="modal__content--footer"></div>
+    </div>
+    <ng-content></ng-content>
+  </div>
+  <div (click)="toggle()" @overlay class="overlay"></div>
+</ng-container>

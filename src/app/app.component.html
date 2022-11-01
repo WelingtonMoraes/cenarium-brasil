@@ -70,7 +70,7 @@
         [ngClass]="'item col-3 alignVertical' + specialties.id"
       >
         <img
-          (click)="openModal()"
+          (click)="modal.toggle()"
           src="https://via.placeholder.com/300"
           alt=""
         />
@@ -216,3 +216,5 @@
 
   <footer class="col-12"></footer>
 </div>
+
+<app-modal #modal></app-modal>

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api: 'http://localhost:5005/',
+  api: 'http://191.101.14.70:5005/',
   apiKey: '',
   adyen: '',
 };

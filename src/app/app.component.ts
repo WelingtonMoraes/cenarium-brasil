@@ -86,10 +86,6 @@ export class AppComponent {
     });
   }
 
-  openModal() {
-    console.log('teste');
-  }
-
   public openTab(_tab: string) {
     console.log(_tab);
 
