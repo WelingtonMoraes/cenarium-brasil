@@ -67,17 +67,17 @@
     >
       <div
         *ngFor="let specialtiesImg of specialties.images"
-        class="item col-3 alignVertical"
+        [ngClass]="'item col-3 alignVertical' + specialties.id"
       >
-        <!-- <img
+        <img
           (click)="openModal()"
           src="https://via.placeholder.com/300"
           alt=""
-        /> -->
-        <img
-          src="'./cenariumbrasil.com.br/backend/'{{ specialtiesImg[0] }}"
-          alt=""
         />
+        <!-- <img
+          src="./cenariumbrasil.com.br/backend/{{ specialtiesImg[0] }}"
+          alt=""
+        /> -->
       </div>
     </div>
   </div>
@@ -96,10 +96,7 @@
     <div *ngFor="let whatDo of whatWeDo" class="col-4 alignVertical">
       <div class="whatDo__body--card alignVertical">
         <!-- <img src="https://via.placeholder.com/300" alt="" /> -->
-        <img
-          src="'./cenariumbrasil.com.br/backend/'{{ whatDo.image }}"
-          alt=""
-        />
+        <img src="/images{{ whatDo.image }}" alt="" />
         <h3>{{ whatDo.name }}</h3>
         <p>
           {{ whatDo.description }}
@@ -140,11 +137,11 @@
       <div class="employees__swiper--card">
         <div class="item">
           <div class="item__img">
-            <!-- <img src="https://via.placeholder.com/400x500" alt="" /> -->
-            <img
-              src="'./cenariumbrasil.com.br/backend/'{{ employees.image }}"
+            <img src="https://via.placeholder.com/400x500" alt="" />
+            <!-- <img
+              src="./cenariumbrasil.com.br/backend/{{ employees.image }}"
               alt=""
-            />
+            /> -->
           </div>
           <div class="item__txt">
             <h2>{{ employees.name }}</h2>

@@ -71,6 +71,7 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.whatWeDoService.getWhatWedo().subscribe((data: any) => {
+      console.log(data);
       this.whatWeDo = data;
     });
 
@@ -80,6 +81,7 @@ export class AppComponent {
     });
 
     this.teamService.getTeam().subscribe((data: any) => {
+      console.log(data);
       this.team = data;
     });
   }
@@ -90,5 +92,24 @@ export class AppComponent {
 
   public openTab(_tab: string) {
     console.log(_tab);
+
+    switch (_tab) {
+      case 'tab1': {
+        //statements;
+        break;
+      }
+      case 'tab2': {
+        //statements;
+        break;
+      }
+      case 'tab3': {
+        //statements;
+        break;
+      }
+      default: {
+        //statements;
+        break;
+      }
+    }
   }
 }
