@@ -297,6 +297,7 @@ nav{
           min-height: 337px;
           object-fit: cover;
           border: 8px solid #fff;
+          padding-bottom: 0px;
 
           @media (max-width: 480px) {
             min-height: 200px;

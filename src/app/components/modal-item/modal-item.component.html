@@ -1,18 +1,23 @@
 <ng-container *ngIf="mostrar">
   <div class="modal alignVertical" @modal>
     <div class="modal__content">
-      <div class="modal__content--header alignVerticalEnd">
-        <img
-          (click)="toggle()"
-          src="../../../assets/icons/iconClose.svg"
-          alt=""
-        />
+      <div class="modal__content--header alignVertical">
+        <div class="col-6 alignVerticalStart">
+          <h2>Detalhes da atração</h2>
+        </div>
+        <div class="col-6 alignVerticalEnd">
+          <img
+            (click)="toggle()"
+            src="../../../assets/icons/iconClose.svg"
+            alt=""
+          />
+        </div>
       </div>
       <div class="modal__content--body alignVertical">
-        <div class="col-6">
+        <div class="col-7">
           <img src="https://via.placeholder.com/300" alt="" />
         </div>
-        <div class="col-6 alignVertical">
+        <div class="col-5 alignVertical">
           <div class="col-6">
             <img src="https://via.placeholder.com/300" alt="" />
           </div>
@@ -25,6 +30,27 @@
           <div class="col-6">
             <img src="https://via.placeholder.com/300" alt="" />
           </div>
+        </div>
+
+        <div class="col-12">
+          <div class="col-7">
+            <div class="line"></div>
+            <div class="paragrafo">
+              <h2>Carro Alegórico</h2>
+              <p>OktoberFest de Blumenau (SC)</p>
+            </div>
+            <div class="paragrafo">
+              <p><b>Tipo:</b> Escultura</p>
+            </div>
+            <div class="paragrafo">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae
+                leo sodales massa molestie integer nam volutpat. Massa molestie
+                mattis habitant morbi enim rhoncus elit. Sit tristique.
+              </p>
+            </div>
+          </div>
+          <div class="col-5 alignVertical"></div>
         </div>
       </div>
       <div class="modal__content--footer"></div>
