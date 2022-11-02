@@ -1,4 +1,9 @@
-import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  ViewChild,
+  ViewEncapsulation,
+} from '@angular/core';
 // import Swiper core and required modules
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { SwiperComponent } from 'swiper/angular';
@@ -21,7 +26,7 @@ import { TeamService } from './services/team.service';
 })
 export class AppComponent {
   @ViewChild('swiper', { static: false }) swiper?: SwiperComponent;
-  title = 'cenarium';
+  title = 'Cenarium Brasil';
 
   //icons
   faInstagram = faInstagram;
@@ -61,7 +66,8 @@ export class AppComponent {
   constructor(
     private whatWeDoService: WhatWeDoService,
     private specialityService: SpecialityService,
-    private teamService: TeamService
+    private teamService: TeamService,
+    private el: ElementRef
   ) {}
 
   scroll(el: HTMLElement) {
@@ -70,6 +76,8 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
+    this.onCloseWhenClickingOnMobile();
+
     this.whatWeDoService.getWhatWedo().subscribe((data: any) => {
       console.log(data);
       this.whatWeDo = data;
@@ -84,6 +92,22 @@ export class AppComponent {
       console.log(data);
       this.team = data;
     });
+  }
+
+  onCloseOnMobile() {
+    // removes the visibility class and adds the hidden class.
+    this.el.nativeElement.classList.remove('show-menu');
+    this.el.nativeElement.classList.add('hide-menu');
+  }
+
+  onCloseWhenClickingOnMobile() {
+    // just on mobile devices.
+    if (window.innerWidth <= 1023) {
+      // when the menu or backdrop is clicked the menu is closed.
+      this.el.nativeElement.addEventListener('click', () => {
+        this.onCloseOnMobile();
+      });
+    }
   }
 
   public openTab(_tab: string) {

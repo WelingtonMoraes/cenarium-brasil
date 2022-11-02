@@ -40,17 +40,63 @@
       &--body {
         width: 100%;
 
-        .col-7 {
+        .col-5 {
           position: relative;
+        }
 
-          .line {
-            content: "";
-            position: absolute;
-            top: 0px;
-            right: 0px;
-            width: 2px;
-            height: 100%;
-            background-color: #DDDDDD;
+        .col-12{
+          margin-top: 20px;
+        }
+
+        .line {
+          content: "";
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          width: 1px;
+          height: 100%;
+          background-color: #DDDDDD;
+        }
+
+        .details{
+          h3{
+            margin: 0px;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 20px;
+            text-transform: uppercase;
+          }
+
+          img{
+            width: 90%;
+            margin-top: 10px;
+            max-width: 160px;
+          }
+
+          &__dimension{
+            margin-top: 10px;
+
+            p{
+              font-weight: 700;
+              font-size: 14px;
+              line-height: 18px;
+              margin: 0px;
+            }
+
+            span{
+              font-weight: 400;
+              font-size: 14px;
+              line-height: 18px;
+              text-align: right;
+              margin: 0px;
+            }
+
+            .col-11{
+              display: grid;
+              padding: 4px 0px;
+              grid-template-columns: auto auto;
+            }
           }
         }
 

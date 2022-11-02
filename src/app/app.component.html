@@ -4,7 +4,24 @@
       <img (click)="scroll(home)" src="../assets/images/Logo.png" alt="" />
     </div>
     <div class="col-8 alignVertical">
-      <ul class="alignVerticalEnd">
+      <div class="alignVerticalEnd navMobile">
+        <button
+          id="close-menu"
+          class="mobile-only"
+          (click)="onCloseOnMobile()"
+          aria-label="close menu"
+        >
+          <img src="../assets/icons/iconClose.svg" alt="" />
+        </button>
+        <ul role="menubar">
+          <li><a (click)="scroll(portfolio)">Portfólio</a></li>
+          <li><a (click)="scroll(sobre)">Sobre nós</a></li>
+          <li><a (click)="scroll(equipe)">Equipe</a></li>
+          <li class="contato"><a (click)="scroll(contato)">Contato</a></li>
+        </ul>
+      </div>
+
+      <ul class="alignVerticalEnd navDesktop">
         <li><a (click)="scroll(portfolio)">Portfólio</a></li>
         <li><a (click)="scroll(sobre)">Sobre nós</a></li>
         <li><a (click)="scroll(equipe)">Equipe</a></li>
