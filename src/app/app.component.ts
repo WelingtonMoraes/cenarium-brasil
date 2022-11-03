@@ -126,7 +126,7 @@ export class AppComponent {
     this.loadSend = true;
     this.contactService
       .sendEmail(name, contact, idea)
-      .subscribe((data: any) => {+
+      .subscribe((data: any) => {
         if (data.success) {
           this.toastr.success('Sucesso', 'Email enviado com sucesso');
         } else {

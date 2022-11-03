@@ -9,9 +9,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalModule } from './components/modal-item/modal-item.module';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { ToastrModule } from 'ngx-toastr';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoadingComponent],
+  exports: [LoadingComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -21,6 +24,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     FontAwesomeModule,
     ModalModule,
     NgxSkeletonLoaderModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

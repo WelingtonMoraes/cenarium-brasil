@@ -273,11 +273,13 @@
 
           <div class="form col-12 alignVerticalEnd">
             <button
+              *ngIf="!loadSend"
               (click)="sendEmail(name.value, email.value, idea.value)"
               class="button"
             >
               Enviar
             </button>
+            <app-loading *ngIf="loadSend"></app-loading>
           </div>
         </div>
       </div>
