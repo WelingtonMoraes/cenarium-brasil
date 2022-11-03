@@ -13,40 +13,37 @@
           />
         </div>
       </div>
-      <div class="modal__content--body alignVertical">
+      <div *ngIf="!loadBody" class="modal__content--body alignVertical">
         <div class="col-7">
-          <img src="https://via.placeholder.com/300" alt="" />
+          <img src="{{ data.images[0] }}" alt="" />
         </div>
         <div class="col-5 alignVertical">
           <div class="col-6">
-            <img src="https://via.placeholder.com/300" alt="" />
+            <img src="{{ data.images[1] }}" alt="" />
           </div>
           <div class="col-6">
-            <img src="https://via.placeholder.com/300" alt="" />
+            <img src="{{ data.images[2] }}" alt="" />
           </div>
           <div class="col-6">
-            <img src="https://via.placeholder.com/300" alt="" />
+            <img src="{{ data.images[3] }}" alt="" />
           </div>
           <div class="col-6">
-            <img src="https://via.placeholder.com/300" alt="" />
+            <img src="{{ data.images[4] }}" alt="" />
           </div>
         </div>
 
         <div class="col-12 alignVertical">
           <div class="col-7">
             <div class="paragrafo">
-              <h2>Carro Alegórico</h2>
-              <p>OktoberFest de Blumenau (SC)</p>
+              <h2>{{ data.title }}</h2>
+              <p>{{ data.subTitle }}</p>
+            </div>
+
+            <div class="paragrafo">
+              <p><b>Tipo:</b> {{ data.type }}</p>
             </div>
             <div class="paragrafo">
-              <p><b>Tipo:</b> Escultura</p>
-            </div>
-            <div class="paragrafo">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae
-                leo sodales massa molestie integer nam volutpat. Massa molestie
-                mattis habitant morbi enim rhoncus elit. Sit tristique.
-              </p>
+              <p>{{ data.description }}</p>
             </div>
           </div>
           <div class="col-5 alignVertical">
@@ -58,21 +55,211 @@
               <div class="details__dimension alignVertical col-12">
                 <div class="col-11">
                   <p>Dimensões:</p>
-                  <span> 2 m x 3 m x 4m </span>
+                  <span>
+                    {{ data.detailsRequest.width }}m x
+                    {{ data.detailsRequest.length }}m x
+                    {{ data.detailsRequest.height }}m
+                  </span>
                 </div>
                 <div class="col-11">
                   <p>Material:</p>
-                  <span>Ferro, plástico, tinta</span>
+                  <span>{{ data.detailsRequest.material }}</span>
                 </div>
                 <div class="col-11">
                   <p>Produção:</p>
-                  <span>3 meses</span>
+                  <span>{{ data.detailsRequest.productionTime }}</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <div *ngIf="loadBody" class="modal__content--body alignVertical">
+        <div class="col-7">
+          <ngx-skeleton-loader
+            count="1"
+            appearance="line"
+            animation="progress"
+            [theme]="{
+              width: '400px',
+              height: '300px',
+              'border-radius': '8px'
+            }"
+          >
+          </ngx-skeleton-loader>
+        </div>
+        <div class="col-5 alignVertical">
+          <div class="col-6">
+            <ngx-skeleton-loader
+              count="1"
+              appearance="line"
+              animation="progress"
+              [theme]="{
+                width: '140px',
+                height: '140px',
+                'border-radius': '8px'
+              }"
+            >
+            </ngx-skeleton-loader>
+          </div>
+          <div class="col-6">
+            <ngx-skeleton-loader
+              count="1"
+              appearance="line"
+              animation="progress"
+              [theme]="{
+                width: '140px',
+                height: '140px',
+                'border-radius': '8px'
+              }"
+            >
+            </ngx-skeleton-loader>
+          </div>
+          <div class="col-6">
+            <ngx-skeleton-loader
+              count="1"
+              appearance="line"
+              animation="progress"
+              [theme]="{
+                width: '140px',
+                height: '140px',
+                'border-radius': '8px'
+              }"
+            >
+            </ngx-skeleton-loader>
+          </div>
+          <div class="col-6">
+            <ngx-skeleton-loader
+              count="1"
+              appearance="line"
+              animation="progress"
+              [theme]="{
+                width: '140px',
+                height: '140px',
+                'border-radius': '8px'
+              }"
+            >
+            </ngx-skeleton-loader>
+          </div>
+        </div>
+
+        <div class="col-12 alignVertical">
+          <div class="col-7">
+            <div class="paragrafo">
+              <ngx-skeleton-loader
+                count="1"
+                appearance="line"
+                animation="progress"
+                [theme]="{
+                  width: '250px',
+                  height: '20px',
+                  'border-radius': '8px',
+                  display: 'block'
+                }"
+              >
+              </ngx-skeleton-loader>
+              <ngx-skeleton-loader
+                count="1"
+                appearance="line"
+                animation="progress"
+                [theme]="{
+                  width: '140px',
+                  height: '15px',
+                  'border-radius': '8px',
+                  display: 'block'
+                }"
+              >
+              </ngx-skeleton-loader>
+            </div>
+
+            <div class="paragrafo">
+              <ngx-skeleton-loader
+                count="1"
+                appearance="line"
+                animation="progress"
+                [theme]="{
+                  width: '140px',
+                  height: '15px',
+                  'border-radius': '8px',
+                  display: 'block'
+                }"
+              >
+              </ngx-skeleton-loader>
+            </div>
+            <div class="paragrafo">
+              <ngx-skeleton-loader
+                count="1"
+                appearance="line"
+                animation="progress"
+                [theme]="{
+                  width: '250px',
+                  height: '100px',
+                  'border-radius': '8px',
+                  display: 'block'
+                }"
+              >
+              </ngx-skeleton-loader>
+            </div>
+          </div>
+          <div class="col-5 alignVertical">
+            <div class="line"></div>
+            <div class="details alignVertical">
+              <h3>Detalhes do projeto</h3>
+              <img src="../../../assets/icons/cubo.png" alt="" />
+
+              <div class="details__dimension alignVertical col-12">
+                <div class="col-11">
+                  <p>Dimensões:</p>
+                  <ngx-skeleton-loader
+                    count="1"
+                    appearance="line"
+                    animation="progress"
+                    [theme]="{
+                      width: '100px',
+                      height: '15px',
+                      'border-radius': '8px',
+                      display: 'block'
+                    }"
+                  >
+                  </ngx-skeleton-loader>
+                </div>
+                <div class="col-11">
+                  <p>Material:</p>
+                  <ngx-skeleton-loader
+                    count="1"
+                    appearance="line"
+                    animation="progress"
+                    [theme]="{
+                      width: '100px',
+                      height: '15px',
+                      'border-radius': '8px',
+                      display: 'block'
+                    }"
+                  >
+                  </ngx-skeleton-loader>
+                </div>
+                <div class="col-11">
+                  <p>Produção:</p>
+                  <ngx-skeleton-loader
+                    count="1"
+                    appearance="line"
+                    animation="progress"
+                    [theme]="{
+                      width: '100px',
+                      height: '15px',
+                      'border-radius': '8px',
+                      display: 'block'
+                    }"
+                  >
+                  </ngx-skeleton-loader>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="modal__content--footer"></div>
     </div>
     <ng-content></ng-content>

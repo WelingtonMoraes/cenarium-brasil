@@ -1,24 +1,22 @@
 <nav class="nav alinItem">
   <div class="container nav__content flex flex-wrap">
-    <div class="col-4">
+    <div class="col-4 alignVerticalStart">
       <img (click)="scroll(home)" src="../assets/images/Logo.png" alt="" />
     </div>
     <div class="col-8 alignVertical">
       <div class="alignVerticalEnd navMobile">
-        <button
-          id="close-menu"
-          class="mobile-only"
-          (click)="onCloseOnMobile()"
-          aria-label="close menu"
-        >
-          <img src="../assets/icons/iconClose.svg" alt="" />
+        <button (click)="toggleMenu()">
+          <fa-icon
+            *ngIf="isMenuOpen"
+            class="alignVertical"
+            [icon]="faBars"
+          ></fa-icon>
+          <fa-icon
+            *ngIf="!isMenuOpen"
+            class="alignVertical"
+            [icon]="faXmark"
+          ></fa-icon>
         </button>
-        <ul role="menubar">
-          <li><a (click)="scroll(portfolio)">Portfólio</a></li>
-          <li><a (click)="scroll(sobre)">Sobre nós</a></li>
-          <li><a (click)="scroll(equipe)">Equipe</a></li>
-          <li class="contato"><a (click)="scroll(contato)">Contato</a></li>
-        </ul>
       </div>
 
       <ul class="alignVerticalEnd navDesktop">
@@ -30,6 +28,21 @@
     </div>
   </div>
 </nav>
+
+<div id="menuMobile" class="menuMobile menuMobileClose">
+  <ul class="alignVerticalStart">
+    <li class="alignVertical">
+      <a (click)="scroll(portfolio, true)">Portfólio</a>
+    </li>
+    <li class="alignVertical">
+      <a (click)="scroll(sobre, true)">Sobre nós</a>
+    </li>
+    <li class="alignVertical"><a (click)="scroll(equipe, true)">Equipe</a></li>
+    <li class="alignVertical">
+      <a (click)="scroll(contato, true)">Contato</a>
+    </li>
+  </ul>
+</div>
 
 <div #home class="banner alignVertical">
   <div class="banner__content alignVertical">
@@ -68,33 +81,98 @@
   <div class="specialties__tabs col-12">
     <div class="specialties__tabs--header alignVertical">
       <div class="col-4 alignVerticalStart">
-        <a class="active" (click)="openTab('tab1')">Atrações Culturais</a>
+        <a [ngClass]="'openTab1 active'" (click)="openTab(1)"
+          >Atrações Culturais</a
+        >
       </div>
       <div class="col-4 alignVertical">
-        <a (click)="openTab('tab2')">esculturas</a>
+        <a [ngClass]="'openTab2'" (click)="openTab(2)">esculturas</a>
       </div>
       <div class="col-4 alignVerticalEnd">
-        <a (click)="openTab('tab3')">iluminação cênica</a>
+        <a [ngClass]="'openTab3'" (click)="openTab(3)">iluminação cênica</a>
       </div>
     </div>
 
+    <!-- skeleton -->
     <div
-      *ngFor="let specialties of speciality"
+      *ngIf="loadSpecialties"
       class="specialties__tabs--body alignVerticalStart"
     >
+      <div class="item col-3 alignVertical">
+        <ngx-skeleton-loader
+          count="3"
+          appearance="line"
+          animation="progress"
+          [theme]="{
+            width: '300px',
+            height: '300px',
+            'border-radius': '8px'
+          }"
+        >
+        </ngx-skeleton-loader>
+      </div>
+      <div class="item col-3 alignVertical">
+        <ngx-skeleton-loader
+          count="3"
+          appearance="line"
+          animation="progress"
+          [theme]="{
+            width: '300px',
+            height: '300px',
+            'border-radius': '8px'
+          }"
+        >
+        </ngx-skeleton-loader>
+      </div>
+      <div class="item col-3 alignVertical">
+        <ngx-skeleton-loader
+          count="3"
+          appearance="line"
+          animation="progress"
+          [theme]="{
+            width: '300px',
+            height: '300px',
+            'border-radius': '8px'
+          }"
+        >
+        </ngx-skeleton-loader>
+      </div>
+      <div class="item col-3 alignVertical">
+        <ngx-skeleton-loader
+          count="3"
+          appearance="line"
+          animation="progress"
+          [theme]="{
+            width: '300px',
+            height: '300px',
+            'border-radius': '8px'
+          }"
+        >
+        </ngx-skeleton-loader>
+      </div>
+    </div>
+    <!-- end skeleton -->
+
+    <div class="col-12" *ngIf="!loadSpecialties">
       <div
-        *ngFor="let specialtiesImg of specialties.images"
-        [ngClass]="'item col-3 alignVertical ' + specialties.id"
+        *ngFor="let specialties of speciality"
+        [ngClass]="
+          'specialties__tabs--body alignVerticalStart ' +
+          (specialties.type != 'DESFILE'
+            ? 'hidden ' + specialties.type
+            : '' + specialties.type)
+        "
       >
-        <img
-          (click)="modal.toggle()"
-          src="https://via.placeholder.com/300"
-          alt=""
-        />
-        <!-- <img
-          src="./cenariumbrasil.com.br/backend/{{ specialtiesImg[0] }}"
-          alt=""
-        /> -->
+        <div
+          *ngFor="let specialtiesImg of specialties.specialities"
+          class="item col-3 alignVertical"
+        >
+          <img
+            (click)="openModal(specialtiesImg.id)"
+            src="{{ specialtiesImg.image }}"
+            alt=""
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -112,8 +190,7 @@
   <div class="whatDo__body alignVertical">
     <div *ngFor="let whatDo of whatWeDo" class="col-4 alignVertical">
       <div class="whatDo__body--card alignVertical">
-        <img src="https://via.placeholder.com/300" alt="" />
-        <!-- <img src="/images{{ whatDo.image }}" alt="" /> -->
+        <img src="{{ whatDo.image }}" alt="" />
         <h3>{{ whatDo.name }}</h3>
         <p>
           {{ whatDo.description }}
@@ -154,11 +231,7 @@
       <div class="employees__swiper--card">
         <div class="item">
           <div class="item__img">
-            <img src="https://via.placeholder.com/400x500" alt="" />
-            <!-- <img
-              src="./cenariumbrasil.com.br/backend/{{ employees.image }}"
-              alt=""
-            /> -->
+            <img src="{{ employees.image }}" alt="" />
           </div>
           <div class="item__txt">
             <h2>{{ employees.name }}</h2>
@@ -185,21 +258,26 @@
 
           <div class="form col-12">
             <label>Nome</label>
-            <input class="col-12" type="text" id="fname" name="fname" />
+            <input #name class="col-12" type="text" id="name" name="name" />
           </div>
 
           <div class="form col-12">
             <label>E-mail ou Telefone</label>
-            <input class="col-12" type="text" id="fname" name="fname" />
+            <input #email class="col-12" type="text" id="email" name="email" />
           </div>
 
           <div class="form col-12">
             <label>Qual sua ideia?</label>
-            <textarea class="col-12" rows="4" cols="50"></textarea>
+            <textarea #idea class="col-12" rows="4" cols="50"></textarea>
           </div>
 
           <div class="form col-12 alignVerticalEnd">
-            <button class="button">Enviar</button>
+            <button
+              (click)="sendEmail(name.value, email.value, idea.value)"
+              class="button"
+            >
+              Enviar
+            </button>
           </div>
         </div>
       </div>
@@ -209,22 +287,34 @@
         <div class="col-10">
           <h3>Mande uma mensagem e siga-nos nas <b>redes sociais</b></h3>
           <div class="alignVerticalStart col-12">
-            <span class="alignVerticalStart col-12">
+            <a
+              href="https://api.whatsapp.com/send?phone=5541991352345"
+              class="alignVerticalStart col-12"
+              target="_blank"
+            >
               <fa-icon class="alignVertical" [icon]="faWhatsapp"></fa-icon>
               +55 (41) 9 9135-2345
-            </span>
+            </a>
           </div>
           <div class="alignVerticalStart col-12">
-            <span class="alignVerticalStart col-12">
+            <a
+              href="https://www.instagram.com/cenariumbrasil/"
+              class="alignVerticalStart col-12"
+              target="_blank"
+            >
               <fa-icon class="alignVertical" [icon]="faInstagram"></fa-icon>
               @Cenariumbrasil
-            </span>
+            </a>
           </div>
           <div class="alignVerticalStart col-12">
-            <span class="alignVerticalStart col-12">
+            <a
+              href="mailto:contato@cenarium.com.br"
+              class="alignVerticalStart col-12"
+              target="_blank"
+            >
               <fa-icon class="alignVertical" [icon]="faEnvelope"></fa-icon>
               Contato@cenarium.com.br
-            </span>
+            </a>
           </div>
         </div>
       </div>
@@ -234,4 +324,4 @@
   <footer class="col-12"></footer>
 </div>
 
-<app-modal #modal></app-modal>
+<app-modal #modal [idKey]="idEspecialist"> </app-modal>

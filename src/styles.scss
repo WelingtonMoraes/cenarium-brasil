@@ -12,6 +12,7 @@ $mobileWidth: 980px;
 @import '~swiper/scss/navigation';
 @import '~swiper/scss/pagination';
 
+
 /* Paginas */
 
 
@@ -109,6 +110,9 @@ body {
 }
 .pointer{
   cursor: pointer;
+}
+.hidden{
+  display: none !important;
 }
 .flex {
   display: flex;

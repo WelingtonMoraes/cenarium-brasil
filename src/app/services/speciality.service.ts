@@ -11,4 +11,8 @@ export class SpecialityService {
   public getSpeciality(): Observable<any> {
     return this.http.get('speciality');
   }
+
+  public getSpecialityDetails(_id: string): Observable<any> {
+    return this.http.get('speciality/' + _id);
+  }
 }

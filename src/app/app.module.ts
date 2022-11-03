@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalModule } from './components/modal-item/modal-item.module';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +20,7 @@ import { ModalModule } from './components/modal-item/modal-item.module';
     BrowserAnimationsModule,
     FontAwesomeModule,
     ModalModule,
+    NgxSkeletonLoaderModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

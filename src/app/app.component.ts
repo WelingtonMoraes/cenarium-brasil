@@ -8,7 +8,7 @@ import {
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { SwiperComponent } from 'swiper/angular';
 import { faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 // install Swiper modules
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
@@ -17,6 +17,7 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 import { WhatWeDoService } from './services/what-we-do.service';
 import { SpecialityService } from './services/speciality.service';
 import { TeamService } from './services/team.service';
+import { ContactService } from './services/contact.service';
 
 @Component({
   selector: 'app-root',
@@ -26,17 +27,24 @@ import { TeamService } from './services/team.service';
 })
 export class AppComponent {
   @ViewChild('swiper', { static: false }) swiper?: SwiperComponent;
+  @ViewChild('modal') modal: any;
+
   title = 'Cenarium Brasil';
+  idEspecialist: string = '';
+  loadSpecialties: boolean = true;
 
   //icons
   faInstagram = faInstagram;
   faWhatsapp = faWhatsapp;
   faEnvelope = faEnvelope;
+  faBars = faBars;
+  faXmark = faXmark;
 
   //array objetos
   whatWeDo: any;
   speciality: any;
   team: any;
+  isMenuOpen: boolean = true;
 
   //swiper
   swiperConfig: any = {
@@ -67,67 +75,102 @@ export class AppComponent {
     private whatWeDoService: WhatWeDoService,
     private specialityService: SpecialityService,
     private teamService: TeamService,
+    private contactService: ContactService,
     private el: ElementRef
   ) {}
 
-  scroll(el: HTMLElement) {
-    console.log(el);
+  scroll(el: HTMLElement, closeMenu?: boolean) {
     el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    if (closeMenu) {
+      this.toggleMenu();
+    }
   }
 
   ngOnInit(): void {
-    this.onCloseWhenClickingOnMobile();
-
     this.whatWeDoService.getWhatWedo().subscribe((data: any) => {
-      console.log(data);
       this.whatWeDo = data;
     });
 
     this.specialityService.getSpeciality().subscribe((data: any) => {
-      console.log(data);
       this.speciality = data;
+      this.loadSpecialties = false;
     });
 
     this.teamService.getTeam().subscribe((data: any) => {
-      console.log(data);
       this.team = data;
     });
   }
 
-  onCloseOnMobile() {
-    // removes the visibility class and adds the hidden class.
-    this.el.nativeElement.classList.remove('show-menu');
-    this.el.nativeElement.classList.add('hide-menu');
-  }
+  public toggleMenu() {
+    let openMenu = this.el.nativeElement.querySelector('#menuMobile');
+    this.isMenuOpen = !this.isMenuOpen;
 
-  onCloseWhenClickingOnMobile() {
-    // just on mobile devices.
-    if (window.innerWidth <= 1023) {
-      // when the menu or backdrop is clicked the menu is closed.
-      this.el.nativeElement.addEventListener('click', () => {
-        this.onCloseOnMobile();
-      });
+    if (this.isMenuOpen) {
+      openMenu.classList.add('menuMobileClose');
+    } else {
+      openMenu.classList.remove('menuMobileClose');
     }
   }
 
-  public openTab(_tab: string) {
-    console.log(_tab);
+  public openModal(_id: string) {
+    this.idEspecialist = _id;
+    this.modal.idKey = _id;
+    this.modal.toggle();
+  }
+
+  public sendEmail(name: string, contact: string, idea: string) {
+    this.contactService
+      .sendEmail(name, contact, idea)
+      .subscribe((data: any) => {
+        console.log(data);
+      });
+  }
+
+  public openTab(_tab: number) {
+    let desfile = this.el.nativeElement.querySelector('.DESFILE');
+    let atracao = this.el.nativeElement.querySelector('.ATRACAO');
+    let concerto = this.el.nativeElement.querySelector('.CONCERTO');
+
+    let openTab1 = this.el.nativeElement.querySelector('.openTab1');
+    let openTab2 = this.el.nativeElement.querySelector('.openTab2');
+    let openTab3 = this.el.nativeElement.querySelector('.openTab3');
 
     switch (_tab) {
-      case 'tab1': {
-        //statements;
+      case 1: {
+        openTab1.classList.add('active');
+        openTab2.classList.remove('active');
+        openTab3.classList.remove('active');
+
+        desfile.classList.remove('hidden');
+        atracao.classList.add('hidden');
+        concerto.classList.add('hidden');
         break;
       }
-      case 'tab2': {
-        //statements;
+      case 2: {
+        openTab1.classList.remove('active');
+        openTab2.classList.add('active');
+        openTab3.classList.remove('active');
+
+        desfile.classList.add('hidden');
+        atracao.classList.remove('hidden');
+        concerto.classList.add('hidden');
         break;
       }
-      case 'tab3': {
-        //statements;
+      case 3: {
+        openTab1.classList.remove('active');
+        openTab2.classList.remove('active');
+        openTab3.classList.add('active');
+
+        desfile.classList.add('hidden');
+        atracao.classList.add('hidden');
+        concerto.classList.remove('hidden');
         break;
       }
       default: {
-        //statements;
+        desfile.classList.remove('hidden');
+        atracao.classList.add('hidden');
+        concerto.classList.add('hidden');
         break;
       }
     }

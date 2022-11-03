@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
+import { SpecialityService } from 'src/app/services/speciality.service';
 
 @Component({
   selector: 'app-modal',
@@ -41,8 +42,27 @@ import { trigger, style, animate, transition } from '@angular/animations';
     ]),
   ],
 })
-export class ModalComponent {
+export class ModalComponent implements OnChanges {
   mostrar: boolean = false;
+  loadBody: boolean = true;
+  data: any;
+
+  @Input() public idKey?: string;
+
+  constructor(private specialityService: SpecialityService) {}
+
+  ngOnChanges(): void {
+    this.loadBody = true;
+    this.specialityService
+      .getSpecialityDetails(this.idKey!)
+      .subscribe((data: any) => {
+        this.data = data;
+
+        if (this.data) {
+          this.loadBody = false;
+        }
+      });
+  }
 
   toggle() {
     this.mostrar = !this.mostrar;
