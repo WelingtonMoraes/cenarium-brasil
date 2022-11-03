@@ -9,6 +9,7 @@ import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { SwiperComponent } from 'swiper/angular';
 import { faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { ToastrService } from 'ngx-toastr';
 
 // install Swiper modules
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
@@ -32,6 +33,7 @@ export class AppComponent {
   title = 'Cenarium Brasil';
   idEspecialist: string = '';
   loadSpecialties: boolean = true;
+  loadSend: boolean = false;
 
   //icons
   faInstagram = faInstagram;
@@ -76,6 +78,7 @@ export class AppComponent {
     private specialityService: SpecialityService,
     private teamService: TeamService,
     private contactService: ContactService,
+    private toastr: ToastrService,
     private el: ElementRef
   ) {}
 
@@ -120,10 +123,16 @@ export class AppComponent {
   }
 
   public sendEmail(name: string, contact: string, idea: string) {
+    this.loadSend = true;
     this.contactService
       .sendEmail(name, contact, idea)
-      .subscribe((data: any) => {
-        console.log(data);
+      .subscribe((data: any) => {+
+        if (data.success) {
+          this.toastr.success('Sucesso', 'Email enviado com sucesso');
+        } else {
+          this.toastr.error('error', 'Email Não enviado');
+        }
+        this.loadSend = false;
       });
   }
 
