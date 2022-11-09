@@ -33,6 +33,8 @@ export class AppComponent {
   title = 'Cenarium Brasil';
   idEspecialist: string = '';
   loadSpecialties: boolean = true;
+  loadwhatDo: boolean = true;
+  loadEmployees: boolean = true;
   loadSend: boolean = false;
 
   //icons
@@ -93,6 +95,7 @@ export class AppComponent {
   ngOnInit(): void {
     this.whatWeDoService.getWhatWedo().subscribe((data: any) => {
       this.whatWeDo = data;
+      this.loadwhatDo = false;
     });
 
     this.specialityService.getSpeciality().subscribe((data: any) => {
@@ -102,6 +105,7 @@ export class AppComponent {
 
     this.teamService.getTeam().subscribe((data: any) => {
       this.team = data;
+      this.loadEmployees = false;
     });
   }
 

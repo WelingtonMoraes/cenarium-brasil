@@ -187,7 +187,7 @@
 </div>
 
 <div #sobre class="whatDo container alignVertical">
-  <div class="whatDo__body alignVertical">
+  <div *ngIf="!loadwhatDo" class="whatDo__body alignVertical">
     <div *ngFor="let whatDo of whatWeDo" class="col-4 alignVertical">
       <div class="whatDo__body--card alignVertical">
         <img src="{{ whatDo.image }}" alt="" />
@@ -195,6 +195,126 @@
         <p>
           {{ whatDo.description }}
         </p>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="loadwhatDo" class="whatDo__body alignVertical">
+    <div class="col-4 alignVertical">
+      <div class="whatDo__body--card alignVertical">
+        <ngx-skeleton-loader
+          count="1"
+          appearance="line"
+          animation="progress"
+          [theme]="{
+            width: '300px',
+            height: '200px',
+            'border-radius': '8px'
+          }"
+        >
+        </ngx-skeleton-loader>
+
+        <ngx-skeleton-loader
+          count="1"
+          appearance="line"
+          animation="progress"
+          [theme]="{
+            width: '300px',
+            height: '30px',
+            'border-radius': '8px'
+          }"
+        >
+        </ngx-skeleton-loader>
+
+        <ngx-skeleton-loader
+          count="1"
+          appearance="line"
+          animation="progress"
+          [theme]="{
+            width: '300px',
+            height: '100px',
+            'border-radius': '8px'
+          }"
+        >
+        </ngx-skeleton-loader>
+      </div>
+    </div>
+    <div class="col-4 alignVertical">
+      <div class="whatDo__body--card alignVertical">
+        <ngx-skeleton-loader
+          count="1"
+          appearance="line"
+          animation="progress"
+          [theme]="{
+            width: '300px',
+            height: '200px',
+            'border-radius': '8px'
+          }"
+        >
+        </ngx-skeleton-loader>
+
+        <ngx-skeleton-loader
+          count="1"
+          appearance="line"
+          animation="progress"
+          [theme]="{
+            width: '300px',
+            height: '30px',
+            'border-radius': '8px'
+          }"
+        >
+        </ngx-skeleton-loader>
+
+        <ngx-skeleton-loader
+          count="1"
+          appearance="line"
+          animation="progress"
+          [theme]="{
+            width: '300px',
+            height: '100px',
+            'border-radius': '8px'
+          }"
+        >
+        </ngx-skeleton-loader>
+      </div>
+    </div>
+    <div class="col-4 alignVertical">
+      <div class="whatDo__body--card alignVertical">
+        <ngx-skeleton-loader
+          count="1"
+          appearance="line"
+          animation="progress"
+          [theme]="{
+            width: '300px',
+            height: '200px',
+            'border-radius': '8px'
+          }"
+        >
+        </ngx-skeleton-loader>
+
+        <ngx-skeleton-loader
+          count="1"
+          appearance="line"
+          animation="progress"
+          [theme]="{
+            width: '300px',
+            height: '30px',
+            'border-radius': '8px'
+          }"
+        >
+        </ngx-skeleton-loader>
+
+        <ngx-skeleton-loader
+          count="1"
+          appearance="line"
+          animation="progress"
+          [theme]="{
+            width: '300px',
+            height: '100px',
+            'border-radius': '8px'
+          }"
+        >
+        </ngx-skeleton-loader>
       </div>
     </div>
   </div>
@@ -226,7 +346,27 @@
     <h2>Conheça a nossa <br /><b>EQUIPE</b></h2>
   </div>
 
-  <swiper #swiper [config]="swiperConfig" class="employees__swiper">
+  <div *ngIf="loadEmployees" class="alignVertical col-12">
+    <ngx-skeleton-loader
+      count="3"
+      appearance="line"
+      animation="progress"
+      [theme]="{
+        width: '300px',
+        height: ' 500px',
+        margin: '20px',
+        'border-radius': '8px'
+      }"
+    >
+    </ngx-skeleton-loader>
+  </div>
+
+  <swiper
+    *ngIf="!loadEmployees"
+    #swiper
+    [config]="swiperConfig"
+    class="employees__swiper"
+  >
     <ng-template *ngFor="let employees of team" swiperSlide>
       <div class="employees__swiper--card">
         <div class="item">
