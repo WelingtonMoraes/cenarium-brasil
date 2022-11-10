@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api: 'https://191.101.14.70:5005/',
+  api: 'https://backend.cenariumbrasil.com.br/',
   apiKey: '',
   adyen: '',
 };
